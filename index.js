@@ -58,7 +58,7 @@ client.on("guildMemberAdd", async (member) => {
   if (bot) return;
 
   api({ method: "POST", url: `/players`, data }).then((res) => {
-    console.log("axios res add: ", res);
+    console.log("New member: ", res);
   });
 });
 
@@ -69,7 +69,7 @@ client.on("guildMemberRemove", async (member) => {
     const api_id = res[0].id;
 
     api({ method: "DELETE", url: `/players/${api_id}` }).then((res) => {
-      console.log("success deleted!", res);
+      console.log("Member deleted from database", res);
     });
   });
 });
