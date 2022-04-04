@@ -76,13 +76,20 @@ client.on("guildMemberRemove", async (member) => {
 
 client.on("message", (message) => {
   if (message.content.includes("atualizar_apelido")) {
-    if (!message.guild.me.hasPermission("MANAGE_NICKNAMES"))
+    const hasPermission = message.guild.me.hasPermission("MANAGE_NICKNAMES");
+
+    console.log("hasPermission", hasPermission);
+    if (!hasPermission)
       return message.channel.send(
         "I don't have permission to change your nickname!"
       );
+
+    console.log("trocando nick");
     message.member.setNickname(
       message.content.replace("atualizar_apelido ", "")
     );
+
+    console.log("nick trocado");
   }
 });
 
