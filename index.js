@@ -74,4 +74,12 @@ client.on("guildMemberRemove", async (member) => {
   });
 });
 
+client.on("message", (message) => {
+  if (message.content.startsWith("!nick")) {
+    message.author.setNickname({
+      nick: "Souls of Mischief",
+    });
+  }
+});
+
 client.login(BOT_TOKEN);
