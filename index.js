@@ -75,6 +75,7 @@ client.on("guildMemberRemove", async (member) => {
 });
 
 client.on("message", (message) => {
+  console.log("new message", message);
   if (message.content.includes("atualizar_apelido")) {
     const hasPermission = message.guild.me.hasPermission("MANAGE_NICKNAMES");
 
